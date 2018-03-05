@@ -14,7 +14,7 @@
     "url": "git+https://github.com/bsansouci/FontGenerator.git"
   },
   "author": "bsansouci & schmavery",
-  "devDependencies": {
+  "dependencies": {
     "bs-platform": "bsansouci/bsb-native#2.1.1"
   }
 }
