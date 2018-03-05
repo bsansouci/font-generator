@@ -257,15 +257,14 @@ let generateFontForRes = res => {
       Printf.sprintf("kernings count=%d\n", IntPairMap.cardinal(kerningMap^))
     );
     IntPairMap.iter(
-      ((first, second), (x, y)) =>
+      ((first, second), (x, _y)) =>
         output_string(
           oc,
           Printf.sprintf(
-            "kerning first=%d second=%d amountX=%g amountY=%g\n",
+            "kerning first=%d second=%d amount=%g\n",
             first,
             second,
-            x,
-            y
+            x
           )
         ),
       kerningMap^
