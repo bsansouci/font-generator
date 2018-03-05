@@ -8,6 +8,9 @@
   "scripts": {
     "build": "bsb -make-world"
   },
+  "devDependencies": {
+    "bs-platform": "bsansouci/bsb-native#2.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bsansouci/FontGenerator.git"
