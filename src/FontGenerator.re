@@ -6,9 +6,14 @@ let fontPath = Sys.argv[1];
 
 let fontSize = float_of_string(Sys.argv[2]);
 
+let baseoutputname =
+  Array.length(Sys.argv) === 4 ? Sys.argv[3] : Filename.basename(fontPath);
+
 let output =
-  Array.length(Sys.argv) === 4 ?
-    Sys.argv[3] : Filename.(chop_extension(basename(fontPath)));
+  switch (Filename.chop_extension(baseoutputname)) {
+  | exception (Invalid_argument(_)) => baseoutputname
+  | name => name
+  };
 
 let debug = true;
 
@@ -216,7 +221,7 @@ let generateFontForRes = res => {
       Printf.sprintf(
         "info res=%d face=%s size=%g bold=0 italic=0 charset= unicode= stretchH=100 smooth=1 aa=1 padding=3,3,3,3 spacing=0,0 outline=0\n",
         res,
-        output,
+        Filename.basename(output),
         fontSize
       )
     );
@@ -229,7 +234,10 @@ let generateFontForRes = res => {
     );
     output_string(
       oc,
-      Printf.sprintf("page id=0 file=\"%s\"\n", output ++ ".png")
+      Printf.sprintf(
+        "page id=0 file=\"%s\"\n",
+        Filename.basename(output) ++ ".png"
+      )
     );
     output_string(
       oc,
@@ -247,7 +255,7 @@ let generateFontForRes = res => {
             v.width,
             v.height,
             v.bearingX,
-             -. v.bearingY,
+            -. v.bearingY,
             v.advance
           )
         ),
@@ -282,4 +290,4 @@ generateFontForRes(1);
 
 generateFontForRes(2);
 
-print_string("Successfully created all fonts.");
+print_endline("Successfully created all fonts.");
