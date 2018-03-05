@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Font generator for Reprocessing",
   "bin": {
-    "gen-font": "gen-font.sh"
+    "gen-font": "lib/bs/native/fontgenerator.native"
   },
   "scripts": {
     "build": "bsb -make-world",
