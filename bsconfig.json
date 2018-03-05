@@ -1,0 +1,30 @@
+{
+  "name": "ReasonglExampleProject",
+  "sources": [{
+    "dir": "src",
+  }, {
+    "dir": "vendor",
+    "subdirs": [{
+      "dir": "camlimages",
+      "backend": ["native", "bytecode"],
+      "subdirs": {
+        "dir": "src",
+      },
+    }]
+  }],
+  "warnings": {"number": "+5-6+7+27+32..39-40-44+45-45"},
+  "ocaml-dependencies": ["bigarray"],
+  "entries": [{
+    "backend": "native",
+    "main-module": "FontGenerator"
+  }],
+  "c-linker-flags": ["-lpng"],
+  "static-libraries": [
+    "vendor/freetype-2.8/release/lib/libfreetype.a",
+    "lib/bs/libTruetypebindings.o",
+    "lib/bs/Fun.o",
+  ],
+  "build-script": "make",
+  "bs-super-errors": true,
+  "refmt": 3
+}

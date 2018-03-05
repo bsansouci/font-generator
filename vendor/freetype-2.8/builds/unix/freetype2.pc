@@ -1,0 +1,14 @@
+prefix=/Users/benjamin/Desktop/reasonglexampleproject/vendor/freetype-2.8/release
+exec_prefix=/Users/benjamin/Desktop/reasonglexampleproject/vendor/freetype-2.8/release
+libdir=/Users/benjamin/Desktop/reasonglexampleproject/vendor/freetype-2.8/release/lib
+includedir=/Users/benjamin/Desktop/reasonglexampleproject/vendor/freetype-2.8/release/include
+
+Name: FreeType 2
+URL: http://freetype.org
+Description: A free, high-quality, and portable font engine.
+Version: 20.0.14
+Requires:
+Requires.private: 
+Libs: -L${libdir} -lfreetype
+Libs.private: 
+Cflags: -I${includedir}/freetype2

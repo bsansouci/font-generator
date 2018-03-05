@@ -1,0 +1,20 @@
+{
+  "name": "FontGenerator",
+  "version": "0.1.0",
+  "description": "Font generator for Reprocessing",
+  "bin": {
+    "gen-font": "gen-font.sh"
+  },
+  "scripts": {
+    "build": "bsb -make-world",
+    "postinstall": "./makefreetype.sh && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsansouci/FontGenerator.git"
+  },
+  "author": "bsansouci & schmavery",
+  "devDependencies": {
+    "bs-platform": "bsansouci/bsb-native#2.1.1"
+  }
+}
