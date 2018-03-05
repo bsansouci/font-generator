@@ -154,7 +154,7 @@ let generateFontForRes = res => {
   let hackIncrementJustBecause = 0.;
   Array.iter(
     c => {
-      ignore @@ Ftlow.render_char_raw(face.cont, c, 0, Ftlow.Render_Mono);
+      ignore @@ Ftlow.render_char_raw(face.cont, c, 0, Ftlow.Render_Normal);
       let glyphMetrics = Ftlow.get_glyph_metrics(face.cont);
       maxWidth := max(maxWidth^, glyphMetrics.gm_width / 64);
       let bitmapInfo = Ftlow.get_bitmap_info(face.cont);
