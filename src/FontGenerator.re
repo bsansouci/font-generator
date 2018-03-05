@@ -149,9 +149,9 @@ let generateFontForRes = res => {
   let kerningMap = ref(IntPairMap.empty);
   let maxWidth = ref(0);
   let {Ftlow.has_kerning} = Ftlow.face_info(face.cont);
-  let {Ftlow.height: maxHeight} = Ftlow.get_font_metrics(face.cont);
-  let maxHeight = float_of_int(maxHeight) /. 64. -. 1.;
-  let hackIncrementJustBecause = 0.;
+  let {Ftlow.height: lineHeight} = Ftlow.get_font_metrics(face.cont);
+  let lineHeight = float_of_int(lineHeight) /. 64. -. 1.;
+  let hackIncrementJustBecause = float_of_int(res * 2 + 1);
   Array.iter(
     c => {
       ignore @@ Ftlow.render_char_raw(face.cont, c, 0, Ftlow.Render_Normal);
@@ -223,7 +223,8 @@ let generateFontForRes = res => {
     output_string(
       oc,
       Printf.sprintf(
-        "common lineHeight=36 base=25 scaleW=256 scaleH=256 pages=1 packed=0\n"
+        "common lineHeight=%g base=25 scaleW=256 scaleH=256 pages=1 packed=0\n",
+        lineHeight
       )
     );
     output_string(
@@ -246,7 +247,7 @@ let generateFontForRes = res => {
             v.width,
             v.height,
             v.bearingX,
-            maxHeight -. v.bearingY,
+             -. v.bearingY,
             v.advance
           )
         ),
