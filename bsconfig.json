@@ -24,7 +24,7 @@
     "lib/bs/libTruetypebindings.o",
     "lib/bs/Fun.o",
   ],
-  "build-script": "make",
+  "build-script": "build_script.re",
   "bs-super-errors": true,
   "refmt": 3
 }

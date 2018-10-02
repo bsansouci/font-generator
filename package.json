@@ -6,10 +6,11 @@
     "gen-font": "lib/bs/native/fontgenerator.native"
   },
   "scripts": {
+    "postinstall": "./makefreetype.sh",
     "build": "bsb -make-world"
   },
   "devDependencies": {
-    "bs-platform": "bsansouci/bsb-native#2.1.1"
+    "bsb-native": "4.0.6"
   },
   "repository": {
     "type": "git",
